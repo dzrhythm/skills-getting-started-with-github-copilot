@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
               ${details.participants.map(email => `
                 <li>
                   <span class="participant-email">${email}</span>
-                  <button class="delete-btn" data-activity="${name}" data-email="${email}" title="Unregister participant">🗑️</button>
+                  <button class="delete-btn" data-activity="${name}" data-email="${email}" title="Unregister participant" aria-label="Unregister participant">🗑️</button>
                 </li>
               `).join('')}
             </ul>`
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Handle participant deletion
   async function handleDeleteParticipant(event) {
-    const button = event.target;
+    const button = event.currentTarget;
     const activity = button.dataset.activity;
     const email = button.dataset.email;
 
